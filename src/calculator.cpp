@@ -2,7 +2,11 @@
 #include <string>
 #include <unordered_map>
 #include <vector>
-#include "include/calculator.h"
+#include "../include/calculator.h"
+
+Calculator::Calculator(){};
+
+Calculator::~Calculator(){};
 
 void Calculator::insertOperation(std::string &newOperation)
 {
@@ -26,7 +30,7 @@ void Calculator::printSolution()
 {
     for (auto [operation, result] : this->resultMap)
     {
-        std::cout << operation << " = " << result;
+        std::cout << operation << " = " << result << std::endl;
     }
 }
 
