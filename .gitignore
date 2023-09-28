@@ -4,6 +4,7 @@
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
 # Cmake files
+/build
 */cmake-build-debug
 */CMakeCache.txt
 */cmake_install.cmake
