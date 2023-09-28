@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.27)
 
 project(
-  LoginRegister
+  Calculator
   VERSION 1.0
-  DESCRIPTION "RPN Calculator"
+  DESCRIPTION "Calculator"
   LANGUAGES CXX)
 
 
@@ -16,3 +16,6 @@ endif()
 
 add_subdirectory(src)
 add_subdirectory(apps)
+add_subdirectory(test)
+
+
