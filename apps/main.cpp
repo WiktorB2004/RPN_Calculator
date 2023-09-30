@@ -3,21 +3,27 @@
 #include <vector>
 #include "../include/calculator.h"
 #include "../include/RPN-Calculator.h"
+#include "../include/userIO.h"
 
 int main()
 {
-    RPNCalculator a;
+    RPNCalculator calc;
+    userIO usr;
+    std::string usrOperation = "";
+    std::vector<std::string> validOperations{"+", "-", "*", "/"};
 
-    std::string operation1 = "3 5 +";
-    std::string operation2 = "5 3 -";
-    std::string operation3 = "3 3 *";
-    std::string operation4 = "8 4 /";
-    a.insertOperation(operation1);
-    a.insertOperation(operation2);
-    a.insertOperation(operation3);
-    a.insertOperation(operation4);
-    // a.printOperations();
-    a.solve();
-    a.printSolution();
+    while (!usr.validateRPN(usrOperation, validOperations) && usrOperation != "quit")
+    {
+        usrOperation = usr.getInput("Please provide valid RPN string (type quit to stop): ");
+    }
+    if (usrOperation == "quit")
+    {
+        return 0;
+    }
+
+    calc.insertOperation(usrOperation);
+    calc.solve();
+    calc.printSolution();
+
     std::cin.get();
 }
