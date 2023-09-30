@@ -1,6 +1,7 @@
 #include "../include/calculator.h"
 #include "../include/RPN-Calculator.h"
 #include <iostream>
+#include <algorithm>
 #include <vector>
 #include <stack>
 #include <string>
