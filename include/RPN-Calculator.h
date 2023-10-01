@@ -10,6 +10,7 @@ protected:
     std::vector<std::string> extractOperation(std::string &operationString);
 
 public:
+    std::string parentName = "calculator";
     RPNCalculator();
     ~RPNCalculator();
     void solve();
