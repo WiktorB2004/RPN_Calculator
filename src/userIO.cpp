@@ -1,10 +1,16 @@
-#include <string>
 #include <iostream>
+#include <string>
 #include <algorithm>
 #include <vector>
+#include <stdlib.h>
 #include "../include/userIO.h"
 
-std::string userIO::getInput(std::string message)
+void clear()
+{
+    system("clear");
+}
+
+std::string userIO::getInput(std::string message = "")
 {
     std::string res = "";
     std::cout << message;
@@ -24,7 +30,7 @@ bool isNumber(const std::string &s)
     return true;
 }
 
-// This function is copied from RPN-calculator -> maybe try to use only one
+// This function is copied from RPN-calculator
 
 std::vector<std::string> userIO::extractOperation(std::string &operationString)
 {
@@ -75,3 +81,28 @@ bool userIO::validateRPN(std::string input, std::vector<std::string> operations)
     }
     return numberCount == 1;
 }
+
+template <class T>
+std::string userIO::actionScreen(T calc)
+{
+    clear();
+    std::string operation;
+    std::cout << "Choose the action: " << std::endl
+              << "1. Insert operation" << std::endl
+              << "2. Show current operations" << std::endl
+              << "3. Solve and print solution" << std::endl
+              << "4. Show history" << std::endl
+              << "5. Clear history" << std::endl
+              << "6. quit" << std::endl;
+    operation = getInput();
+    if (isNumber(operation))
+    {
+        return operation;
+    }
+    else
+    {
+        return "-1";
+    }
+}
+
+template std::string userIO::actionScreen<RPNCalculator>(RPNCalculator calc);
