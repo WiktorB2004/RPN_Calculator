@@ -1,10 +1,10 @@
-#include "../include/calculator.h"
-#include "../include/RPN-Calculator.h"
 #include <iostream>
 #include <algorithm>
 #include <vector>
 #include <stack>
 #include <string>
+#include "../include/calculator.h"
+#include "../include/RPN-Calculator.h"
 
 int add(int a, int b) { return a + b; }
 int substract(int a, int b) { return b - a; }

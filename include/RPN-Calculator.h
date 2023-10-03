@@ -1,12 +1,11 @@
 #pragma once
-#include "calculator.h"
 #include <vector>
 #include <string>
+#include "calculator.h"
 
 class RPNCalculator : public Calculator
 {
 protected:
-    int solveOperation(const std::vector<std::string> &instructions);
     std::vector<std::string> extractOperation(std::string &operationString);
 
 public:
@@ -14,4 +13,5 @@ public:
     RPNCalculator();
     ~RPNCalculator();
     void solve();
+    int solveOperation(const std::vector<std::string> &instructions);
 };
