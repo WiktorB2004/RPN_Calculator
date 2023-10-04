@@ -3,17 +3,17 @@
 #include "../include/RPN-Calculator.h"
 
 // ===========================================
-// TEST SECTION: RPN Calculator Addition Test
+// TESTING: RPN Calculator Addition Test
 // ===========================================
 
-TEST(RPNCalculatorTest, EmptyAdd)
+TEST(RPNCalculatorTest, EmptyInput)
 {
     RPNCalculator calc;
     std::vector<std::string> usrOperation{};
     EXPECT_EQ(calc.solveOperation(usrOperation), 0);
 }
 
-TEST(RPNCalculatorTest, SingleDigitAdd)
+TEST(RPNCalculatorAdd, SingleDigitAdd)
 {
     RPNCalculator calc;
     std::vector<std::string> usrOperation{"2", "2", "+"};
@@ -29,7 +29,7 @@ TEST(RPNCalculatorTest, SingleDigitAdd)
     EXPECT_EQ(calc.solveOperation(usrOperation), 2);
 }
 
-TEST(RPNCalculatorTest, DifferentDigitAdd)
+TEST(RPNCalculatorAdd, DifferentDigitAdd)
 {
     RPNCalculator calc;
     std::vector<std::string> usrOperation{"22", "2", "+"};
@@ -48,7 +48,7 @@ TEST(RPNCalculatorTest, DifferentDigitAdd)
     EXPECT_EQ(calc.solveOperation(usrOperation), (50000 + 20198));
 }
 
-TEST(RPNCalculatorTest, MultiAddition)
+TEST(RPNCalculatorAdd, MultiAddition)
 {
     RPNCalculator calc;
     std::vector<std::string> usrOperation;
