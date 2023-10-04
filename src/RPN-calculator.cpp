@@ -6,10 +6,10 @@
 #include "../include/calculator.h"
 #include "../include/RPN-Calculator.h"
 
-int add(int a, int b) { return a + b; }
-int substract(int a, int b) { return b - a; }
-int multiply(int a, int b) { return a * b; }
-int divide(int a, int b) { return b / a; }
+double add(double a, double b) { return a + b; }
+double substract(double a, double b) { return b - a; }
+double multiply(double a, double b) { return a * b; }
+double divide(double a, double b) { return double(b) / double(a); }
 
 RPNCalculator::RPNCalculator() : Calculator()
 {
@@ -41,24 +41,24 @@ std::vector<std::string> RPNCalculator::extractOperation(std::string &operationS
     return res;
 }
 
-int RPNCalculator::solveOperation(const std::vector<std::string> &instructions)
+double RPNCalculator::solveOperation(const std::vector<std::string> &instructions)
 {
     if (instructions.empty())
     {
         return 0;
     }
-    std::stack<int> valuesStack;
+    std::stack<double> valuesStack;
     for (std::string instruction : instructions)
     {
         if (this->operationMap.find(instruction) == operationMap.end())
         {
-            valuesStack.push(stoi(instruction));
+            valuesStack.push(stod(instruction));
         }
         else
         {
-            int a = valuesStack.top();
+            double a = valuesStack.top();
             valuesStack.pop();
-            int b = valuesStack.top();
+            double b = valuesStack.top();
             valuesStack.pop();
             valuesStack.push(this->operationMap[instruction](a, b));
         }
@@ -68,7 +68,7 @@ int RPNCalculator::solveOperation(const std::vector<std::string> &instructions)
 
 void RPNCalculator::solve()
 {
-    int res;
+    double res;
     for (std::string operationString : this->operationStack)
     {
         res = solveOperation(extractOperation(operationString));

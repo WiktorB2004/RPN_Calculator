@@ -13,5 +13,5 @@ public:
     RPNCalculator();
     ~RPNCalculator();
     void solve();
-    int solveOperation(const std::vector<std::string> &instructions);
+    double solveOperation(const std::vector<std::string> &instructions);
 };
