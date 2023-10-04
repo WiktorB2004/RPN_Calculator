@@ -2,22 +2,60 @@
 #include "../include/calculator.h"
 #include "../include/RPN-Calculator.h"
 
+// ===========================================
+// TEST SECTION: RPN Calculator Addition Test
+// ===========================================
+
+TEST(RPNCalculatorTest, EmptyAdd)
+{
+    RPNCalculator calc;
+    std::vector<std::string> usrOperation{};
+    EXPECT_EQ(calc.solveOperation(usrOperation), 0);
+}
+
 TEST(RPNCalculatorTest, SingleDigitAdd)
 {
     RPNCalculator calc;
     std::vector<std::string> usrOperation{"2", "2", "+"};
-    int res = calc.solveOperation(usrOperation);
-    EXPECT_EQ(res, 4);
+    EXPECT_EQ(calc.solveOperation(usrOperation), 4);
 
     usrOperation = {"5", "9", "+"};
-    res = calc.solveOperation(usrOperation);
-    EXPECT_EQ(res, 14);
+    EXPECT_EQ(calc.solveOperation(usrOperation), 14);
 
     usrOperation = {"3", "5", "+"};
-    res = calc.solveOperation(usrOperation);
-    EXPECT_EQ(res, 8);
+    EXPECT_EQ(calc.solveOperation(usrOperation), 8);
 
     usrOperation = {"0", "2", "+"};
-    res = calc.solveOperation(usrOperation);
-    EXPECT_EQ(res, 2);
+    EXPECT_EQ(calc.solveOperation(usrOperation), 2);
+}
+
+TEST(RPNCalculatorTest, DifferentDigitAdd)
+{
+    RPNCalculator calc;
+    std::vector<std::string> usrOperation{"22", "2", "+"};
+    EXPECT_EQ(calc.solveOperation(usrOperation), (22 + 2));
+
+    usrOperation = {"54", "9", "+"};
+    EXPECT_EQ(calc.solveOperation(usrOperation), (54 + 9));
+
+    usrOperation = {"360", "54", "+"};
+    EXPECT_EQ(calc.solveOperation(usrOperation), (360 + 54));
+
+    usrOperation = {"102", "2", "+"};
+    EXPECT_EQ(calc.solveOperation(usrOperation), (102 + 2));
+
+    usrOperation = {"50000", "20198", "+"};
+    EXPECT_EQ(calc.solveOperation(usrOperation), (50000 + 20198));
+}
+
+TEST(RPNCalculatorTest, MultiAddition)
+{
+    RPNCalculator calc;
+    std::vector<std::string> usrOperation;
+
+    usrOperation = {"22", "2", "+", "15", "30", "+", "+"};
+    EXPECT_EQ(calc.solveOperation(usrOperation), (22 + 2 + 15 + 30));
+
+    usrOperation = {"54", "9", "+", "1", "25", "+", "+"};
+    EXPECT_EQ(calc.solveOperation(usrOperation), (54 + 9 + 1 + 25));
 }

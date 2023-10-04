@@ -43,6 +43,10 @@ std::vector<std::string> RPNCalculator::extractOperation(std::string &operationS
 
 int RPNCalculator::solveOperation(const std::vector<std::string> &instructions)
 {
+    if (instructions.empty())
+    {
+        return 0;
+    }
     std::stack<int> valuesStack;
     for (std::string instruction : instructions)
     {
