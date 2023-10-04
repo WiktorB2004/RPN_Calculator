@@ -1,5 +1,3 @@
-enable_testing()
-
 add_executable(
   RPNCalculator_test
   RPNCalculator_test.cpp
