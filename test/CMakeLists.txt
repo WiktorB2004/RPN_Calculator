@@ -1,6 +1,10 @@
+# ADD TEST
 add_executable(
   RPNCalculator_test
-  RPNCalculator_test.cpp
+  RPNCalculatorAdd_test.cpp
+  RPNCalculatorSubstract_test.cpp
+  RPNCalculatorMultiply_test.cpp
+  RPNCalculatorDivide_test.cpp
 )
 
 target_link_libraries(
