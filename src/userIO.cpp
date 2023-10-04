@@ -22,7 +22,7 @@ bool isNumber(const std::string &s)
 {
     for (char const &ch : s)
     {
-        if (std::isdigit(ch) == 0)
+        if (std::isdigit(ch) == 0 && ch != '.')
         {
             return false;
         }
