@@ -7,9 +7,9 @@
 #include "../include/RPN-Calculator.h"
 
 double add(double a, double b) { return a + b; }
-double substract(double a, double b) { return b - a; }
+double substract(double a, double b) { return a - b; }
 double multiply(double a, double b) { return a * b; }
-double divide(double a, double b) { return double(b) / double(a); }
+double divide(double a, double b) { return double(a) / double(b); }
 
 RPNCalculator::RPNCalculator() : Calculator()
 {
@@ -60,7 +60,7 @@ double RPNCalculator::solveOperation(const std::vector<std::string> &instruction
             valuesStack.pop();
             double b = valuesStack.top();
             valuesStack.pop();
-            valuesStack.push(this->operationMap[instruction](a, b));
+            valuesStack.push(this->operationMap[instruction](b, a));
         }
     }
     return valuesStack.top();
@@ -75,4 +75,5 @@ void RPNCalculator::solve()
         this->resultMap[operationString] = res;
         this->history[operationString] = res;
     }
+    this->operationStack = {};
 }

@@ -6,6 +6,7 @@
 #include "../include/userIO.h"
 
 void clear();
+
 std::string getOperation(userIO usr);
 
 RPNCalculator calc;
