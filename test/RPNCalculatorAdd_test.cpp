@@ -13,7 +13,7 @@ TEST(RPNCalculatorTest, EmptyInput)
     EXPECT_EQ(calc.solveOperation(usrOperation), 0);
 }
 
-TEST(RPNCalculatorAdd, SingleDigitAdd)
+TEST(RPNCalculatorAdd, intAdd)
 {
     RPNCalculator calc;
     std::vector<std::string> usrOperation{"2", "2", "+"};
@@ -29,26 +29,23 @@ TEST(RPNCalculatorAdd, SingleDigitAdd)
     EXPECT_EQ(calc.solveOperation(usrOperation), 2);
 }
 
-TEST(RPNCalculatorAdd, DifferentDigitAdd)
+TEST(RPNCalculatorAdd, floatAdd)
 {
     RPNCalculator calc;
-    std::vector<std::string> usrOperation{"22", "2", "+"};
-    EXPECT_EQ(calc.solveOperation(usrOperation), (22 + 2));
+    std::vector<std::string> usrOperation{"2.25", "2.37", "+"};
+    EXPECT_EQ(calc.solveOperation(usrOperation), (2.25 + 2.37));
 
-    usrOperation = {"54", "9", "+"};
-    EXPECT_EQ(calc.solveOperation(usrOperation), (54 + 9));
+    usrOperation = {"5.991", "95.12", "+"};
+    EXPECT_EQ(calc.solveOperation(usrOperation), (5.991 + 95.12));
 
-    usrOperation = {"360", "54", "+"};
-    EXPECT_EQ(calc.solveOperation(usrOperation), (360 + 54));
+    usrOperation = {"3.817", "23.1231", "+"};
+    EXPECT_EQ(calc.solveOperation(usrOperation), (3.817 + 23.1231));
 
-    usrOperation = {"102", "2", "+"};
-    EXPECT_EQ(calc.solveOperation(usrOperation), (102 + 2));
-
-    usrOperation = {"50000", "20198", "+"};
-    EXPECT_EQ(calc.solveOperation(usrOperation), (50000 + 20198));
+    usrOperation = {"0", "2.12", "+"};
+    EXPECT_EQ(calc.solveOperation(usrOperation), 2.12);
 }
 
-TEST(RPNCalculatorAdd, MultiAddition)
+TEST(RPNCalculatorAdd, CombinedAddition)
 {
     RPNCalculator calc;
     std::vector<std::string> usrOperation;
