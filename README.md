@@ -12,5 +12,3 @@ Project created to practice:
 
 https://github.com/WiktorB2004/RPN_Calculator/assets/62223421/713b022f-cb55-488b-a27b-26033c08eff3
 
-
-re
