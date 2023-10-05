@@ -9,7 +9,7 @@
 double add(double a, double b) { return a + b; }
 double substract(double a, double b) { return a - b; }
 double multiply(double a, double b) { return a * b; }
-double divide(double a, double b) { return double(a) / double(b); }
+double divide(double a, double b) { return b != 0 ? double(a) / double(b) : 0; }
 
 RPNCalculator::RPNCalculator() : Calculator()
 {

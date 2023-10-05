@@ -6,6 +6,13 @@
 // TESTING: RPN Calculator Divide Test
 // ===========================================
 
+TEST(RPNCalculatorDivide, zeroDivision)
+{
+    RPNCalculator calc;
+    std::vector<std::string> usrOperation{"16", "0", "/"};
+    EXPECT_EQ(calc.solveOperation(usrOperation), 0);
+}
+
 TEST(RPNCalculatorDivide, integerDivide)
 {
     RPNCalculator calc;
