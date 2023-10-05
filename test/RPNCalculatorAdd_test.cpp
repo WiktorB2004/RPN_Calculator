@@ -45,7 +45,7 @@ TEST(RPNCalculatorAdd, floatAdd)
     EXPECT_EQ(calc.solveOperation(usrOperation), 2.12);
 }
 
-TEST(RPNCalculatorAdd, CombinedAddition)
+TEST(RPNCalculatorAdd, CombinedAdd)
 {
     RPNCalculator calc;
     std::vector<std::string> usrOperation;
